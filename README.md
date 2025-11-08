@@ -1,10 +1,9 @@
-
 # 🧭 Next.js Project — Dashboard with ShadCN Components
 
 ## 📋 Overview
 
 This project is built using **Next.js (TypeScript)** and integrates **ShadCN UI components** to create a clean, modular dashboard interface.
-The application allows users to **add data via API** and **view the fetched data** using reusable components.
+It allows users to **add blog data via API** and **view fetched data** in a paginated, server-side-rendered dashboard layout.
 
 ---
 
@@ -12,56 +11,55 @@ The application allows users to **add data via API** and **view the fetched data
 
 ### 🏠 Home Page
 
-* Added a **Card component** that navigates directly to the **Dashboard** on click.
-* Uses **Next.js routing** to handle navigation seamlessly.
+* Includes a **Card component** that navigates directly to the **Dashboard** when clicked.
+
+---
 
 ### 📊 Dashboard Page (`main/page.tsx`)
 
-* Imported and integrated **Sidebar** and **Navbar** from **ShadCN UI** components for a professional layout.
-* Two key sections were developed:
+* Implements a **Sidebar** and **Navbar** from **ShadCN UI**, ensuring a clean and responsive layout.
+* Divided into two major sections:
 
-  1. **Add Section** — Handles API requests (POST)
-  2. **Map Section** — Displays API data (GET)
+  1. **AddBlog Section** — Client-side form for adding data
+  2. **BlogMap Section** — Server-side rendered blog list with client-side pagination
 
 ---
 
 ## 🧩 Components
 
-### 🔹 `Add` Component
+### 🔹 `AddBlog` Component
 
-* Contains a **form** built using **ShadCN form elements**.
-* Uses **React hooks** to manage form input states.
-* On form submission:
-
-  * Sends data to the backend using **`axios.post()`**.
-  * Automatically updates the list of items displayed on the dashboard.
-
-### 🔹 `Map` Component
-
-* Fetches API data using **`axios.get()`**.
-* Loops through the data using the **`map()`** function.
-* Displays each item inside a **ShadCN Card component** for a consistent UI.
+* Uses **ShadCN form components** for input fields.
+* Manages form data using **React Hooks** (`useState`).
+* On submission:
+   * Sends data to the backend API using **`axios.post()`**.
+   * Displays a confirmation using `alert()` showing the submitted data.
+* The form remains lightweight and reactive, following client-side rendering principles.
 
 ---
 
-## 🧠 Tech Stack
+### 🔹 `BlogMap` Component
 
-| Category               | Technologies Used    |
-| ---------------------- | -------------------- |
-| **Frontend Framework** | Next.js (TypeScript) |
-| **UI Library**         | ShadCN UI            |
-| **HTTP Client**        | Axios                |
-| **State Handling**     | React Hooks          |
-| **Styling**            | Tailwind CSS         |
-| **Routing**            | Next.js Router       |
+* Fetches blog data **on the server side** using **Next.js App Router’s server components**  `getServerSideProps`.
+* Returns the fetched data to the **BlogCard** page component.
+* The **BlogCard** is a **client-side component**, which:
+* Uses **pagination** to display limited results per page.
+* Renders each blog entry using **ShadCN Card** components for consistent styling.
 
 ---
 
-## ⚙️ How It Works
+## ⚙️ Workflow
 
-1. User clicks on **Home Page Card** → navigates to `/dashboard`.
-2. Dashboard loads with **Sidebar** and **Navbar**.
-3. In **AddBlog Section**, user enters details → submits form → data sent via `axios.post()`.
-4. In **BlogMap Section**, data fetched via `axios.get()` → displayed in ShadCN Cards.
+1. **Home Page → Dashboard Navigation**
+   Clicking on the **Home Page Card** redirects to `/dashboard`.
+
+2. **Add Blog (Client-side)**
+   The user fills in the blog form → data submitted using `axios.post()` → success alert displayed.
+
+3. **Fetch Blog Data (Server-side)**
+   The **BlogMap** section fetches data on the server side before rendering → improves SEO and load performance.
+
+4. **Display Blogs (Client-side Pagination)**
+   The fetched data is passed into **BlogCard** → displayed with **pagination** using client-side state updates.
 
 ---
