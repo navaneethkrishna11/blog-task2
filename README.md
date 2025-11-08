@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🧭 Next.js Project — Dashboard with ShadCN Components
 
-First, run the development server:
+## 📋 Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project is built using **Next.js (TypeScript)** and integrates **ShadCN UI components** to create a clean, modular dashboard interface.
+The application allows users to **add data via API** and **view the fetched data** using reusable components.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🏠 Home Page
 
-## Learn More
+* Added a **Card component** that navigates directly to the **Dashboard** on click.
+* Uses **Next.js routing** to handle navigation seamlessly.
 
-To learn more about Next.js, take a look at the following resources:
+### 📊 Dashboard Page (`main/page.tsx`)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Imported and integrated **Sidebar** and **Navbar** from **ShadCN UI** components for a professional layout.
+* Two key sections were developed:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  1. **Add Section** — Handles API requests (POST)
+  2. **Map Section** — Displays API data (GET)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧩 Components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🔹 `Add` Component
+
+* Contains a **form** built using **ShadCN form elements**.
+* Uses **React hooks** to manage form input states.
+* On form submission:
+
+  * Sends data to the backend using **`axios.post()`**.
+  * Automatically updates the list of items displayed on the dashboard.
+
+### 🔹 `Map` Component
+
+* Fetches API data using **`axios.get()`**.
+* Loops through the data using the **`map()`** function.
+* Displays each item inside a **ShadCN Card component** for a consistent UI.
+
+---
+
+## 🧠 Tech Stack
+
+| Category               | Technologies Used    |
+| ---------------------- | -------------------- |
+| **Frontend Framework** | Next.js (TypeScript) |
+| **UI Library**         | ShadCN UI            |
+| **HTTP Client**        | Axios                |
+| **State Handling**     | React Hooks          |
+| **Styling**            | Tailwind CSS         |
+| **Routing**            | Next.js Router       |
+
+---
+
+## ⚙️ How It Works
+
+1. User clicks on **Home Page Card** → navigates to `/dashboard`.
+2. Dashboard loads with **Sidebar** and **Navbar**.
+3. In **AddBlog Section**, user enters details → submits form → data sent via `axios.post()`.
+4. In **BlogMap Section**, data fetched via `axios.get()` → displayed in ShadCN Cards.
+
+---
