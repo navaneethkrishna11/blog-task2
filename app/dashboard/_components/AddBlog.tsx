@@ -30,10 +30,12 @@ const AddBlog = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
+    // console.log('Form submitted:', formData)
   try {
+
     const response = await axios.post("https://jsonplaceholder.typicode.com/posts", formData)
-    console.log("API Response:", response.data)
+    // console.log(response.data)
+    alert(`Data submitted: ${JSON.stringify(response.data)}`)
   } catch (err) {
     console.error("Failed to submit:", err)
   }
@@ -108,6 +110,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElemen
           </DialogFooter>
         </form>
       </DialogContent>
+      
     </Dialog>
   )
 }

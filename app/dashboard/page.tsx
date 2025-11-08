@@ -1,5 +1,5 @@
 import React from 'react'
-import { Calendar, Home, Inbox, Search, Settings, Bell, User } from "lucide-react"
+import { Calendar, Home, Inbox, Search, Settings, Bell, User,  Clock,CheckCircle,FileBarChart, } from "lucide-react"
 
 import {
   Sidebar,
@@ -47,13 +47,28 @@ const items = [
     icon: Search,
   },
   {
+    title: "Pending",
+    url: "#",
+    icon: Clock,
+  },
+  {
+    title: "Completed",
+    url: "#",
+    icon: CheckCircle,
+  },
+  {
+    title: "Report",
+    url: "#",
+    icon: FileBarChart,
+  },
+  {
     title: "Settings",
     url: "#",
     icon: Settings,
   },
 ]
 
-
+export const dynamic = 'force-dynamic';
 
 export default function Page() {
   return (
@@ -63,14 +78,13 @@ export default function Page() {
         <Sidebar>
           <SidebarContent>
             <SidebarGroup>
-              <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
                   {items.map((item) => (
-                    <SidebarMenuItem key={item.title}>
+                    <SidebarMenuItem key={item.title}  className="flex items-center gap-3 text-lg py-3">
                       <SidebarMenuButton asChild>
                         <a href={item.url}>
-                          <item.icon />
+                          <item.icon size={22} />
                           <span>{item.title}</span>
                         </a>
                       </SidebarMenuButton>
