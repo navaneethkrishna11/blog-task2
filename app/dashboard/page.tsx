@@ -155,7 +155,7 @@ export default function Page() {
             <p className="text-slate-600 dark:text-slate-400">Check whats happening with your projects today.</p>
 
             
-            <BlogMap/>
+            <BlogMap searchParams={{}}/>
           </main>
         </div>
       </div>
