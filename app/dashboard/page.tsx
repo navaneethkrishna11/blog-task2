@@ -6,7 +6,6 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -68,9 +67,10 @@ const items = [
   },
 ]
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 export default function Page() {
+  
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-slate-50 dark:bg-slate-950">
@@ -96,9 +96,8 @@ export default function Page() {
           </SidebarContent>
         </Sidebar>
 
-        {/* Main Content Area */}
+     {/* Navbar */}
         <div className="flex-1 flex-col">
-          {/* Navbar */}
           <header className="sticky top-0 z-40 w-full border-b bg-white dark:bg-slate-900">
             <div className="flex h-16 items-center justify-between px-6">
               <div className="flex items-center gap-4">
@@ -155,7 +154,7 @@ export default function Page() {
             <p className="text-slate-600 dark:text-slate-400">Check whats happening with your projects today.</p>
 
             
-            <BlogMap searchParams={{}}/>
+            <BlogMap />
           </main>
         </div>
       </div>

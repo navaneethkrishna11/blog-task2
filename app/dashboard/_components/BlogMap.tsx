@@ -12,10 +12,6 @@ interface Photo {
   thumbnailUrl: string
 }
 
-interface BlogMapProps {
-  searchParams: { [key: string]: string | string[] | undefined }
-}
-
 
 async function getServerSideProps() {
   try {
@@ -42,7 +38,7 @@ async function getServerSideProps() {
   }
 }
 
-const BlogMap = async ({ searchParams }: BlogMapProps) => {
+const BlogMap = async () => {
   const { props } = await getServerSideProps()
   const { data, error } = props
 
